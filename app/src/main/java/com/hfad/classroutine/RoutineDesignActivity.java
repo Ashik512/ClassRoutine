@@ -1,5 +1,6 @@
 package com.hfad.classroutine;
 
+
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.hfad.classroutine.Api.ApiRequestBiodata;
-import com.hfad.classroutine.Api.Retroserver;
-import com.hfad.classroutine.Model.ResponsModel;
+import com.hfad.classroutine.Api.ApiClient;
+import com.hfad.classroutine.Api.ApiInterface;
+import com.hfad.classroutine.Model.ResponseModel;
+import com.hfad.classroutine.Model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +29,7 @@ public class RoutineDesignActivity extends AppCompatActivity {
     private EditText Finish_Time;
     private Spinner Day_spinner;
     private Button SaveButton;
-    //ProgressDialog pd;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +44,15 @@ public class RoutineDesignActivity extends AppCompatActivity {
         Day_spinner = (Spinner) findViewById(R.id.spinner_id);
         SaveButton = findViewById(R.id.save_button_id);
 
+        pd = new ProgressDialog(this);
+
 
         SaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //pd.setMessage("sending data ... ");
-               // pd.setCancelable(false);
-                //pd.show();
+                pd.setMessage("sending data ... ");
+                pd.setCancelable(false);
+                pd.show();
                 String subject = Subject.getText().toString().trim();
                 String teacher = Teacher_Name.getText().toString().trim();
                 String room_no = Room_No.getText().toString().trim();
@@ -62,43 +65,45 @@ public class RoutineDesignActivity extends AppCompatActivity {
                 {
                     Toast.makeText(RoutineDesignActivity.this,"All Fields Required",
                             Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                     return;
                 }
 
-                ApiRequestBiodata api = Retroserver.getClient().create(ApiRequestBiodata.class);
+                ApiInterface api = ApiClient.getApiClient().create(ApiInterface.class);
 
-                Call<ResponsModel> sendbio = api.sendBiodata(subject,teacher,room_no,start_time,
+                Call<ResponseModel> sendbio = api.DataInsert(subject,teacher,room_no,start_time,
                         finish_time,day_select);
-                sendbio.enqueue(new Callback<ResponsModel>() {
+
+                sendbio.enqueue(new Callback<ResponseModel>() {
 
                     @Override
-                    public void onResponse(Call<ResponsModel> call, Response<ResponsModel> response) {
+                    public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
 
-                       // pd.hide();
+                        pd.dismiss();
                         Log.d("RETRO", "response : " + response.body().toString());
 
-                        String value = response.body().getValue().toString();
-                        String message = response.body().getMessage().toString();
-
-                          if(value.equals("1"))
+                          if(response.isSuccessful())
                           {
-                              Toast.makeText(RoutineDesignActivity.this,message,
+                              Toast.makeText(RoutineDesignActivity.this,"insertion success",
                                       Toast.LENGTH_SHORT).show();
+                             /// Log.d("Retro ",response.body().getResponse().toString());
                           }
                           else
                           {
-                              Toast.makeText(RoutineDesignActivity.this,message,
+                              Toast.makeText(RoutineDesignActivity.this,"failed",
                                       Toast.LENGTH_SHORT).show();
+                            //  Log.d("Retro ",response.body().getResponse().toString());
                           }
 
                     }
 
                     @Override
-                    public void onFailure(Call<ResponsModel> call, Throwable t) {
-                        //pd.hide();
-                        Toast.makeText(RoutineDesignActivity.this,"Failed",
-                                Toast.LENGTH_SHORT).show();
-                        Log.d("RETRO", "Failure : " + "Request Failed...");
+                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        pd.dismiss();
+                        //Toast.makeText(RoutineDesignActivity.this,"Failed",
+                                //Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RoutineDesignActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+                        Log.d("RETRO",t.getMessage());
 
                     }
                 });

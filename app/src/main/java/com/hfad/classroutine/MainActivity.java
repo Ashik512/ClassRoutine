@@ -10,9 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.hfad.classroutine.Adaptar.DataAdaptar;
 import com.hfad.classroutine.Adaptar.TabsAccessorAdapter;
+import com.hfad.classroutine.Api.ApiInterface;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static String Data;
 
     private Toolbar mToolbar;
     private ViewPager myViewPager;
@@ -38,12 +42,26 @@ public class MainActivity extends AppCompatActivity {
         myViewPager.setAdapter(tabsAccessorAdapter);
         myTabLayout.setupWithViewPager(myViewPager);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent AddRoutine = new Intent(MainActivity.this, RoutineDesignActivity.class);
-                startActivity(AddRoutine);
-            }
-        });
+
+       String message = getIntent().getStringExtra("value");
+       Data = message;
+
+       if(message.equals("Student"))
+        {
+            fab.hide();
+        }
+        else{
+            fab.show();
+           fab.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Intent AddRoutine = new Intent(MainActivity.this, RoutineDesignActivity.class);
+                   startActivity(AddRoutine);
+               }
+           });
+       }
+
+
+
     }
 }
