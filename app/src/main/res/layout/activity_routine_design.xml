@@ -16,93 +16,152 @@
             android:id="@+id/text_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Add Class Routine"
             android:textAlignment="center"
             android:textSize="30sp"
-            android:layout_marginTop="30dp"
-            />
+            android:textStyle="bold"
+            android:textColor="#FF2268"/>
 
-            <EditText
-                android:id="@+id/subject_id"
-                android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/subject_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Subject" />
+
+        <EditText
+            android:id="@+id/teacher_Name_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:hint="Teacher Name" />
+
+        <EditText
+            android:id="@+id/room_No_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:hint="Room No" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Subject"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                />
-            <EditText
-                android:id="@+id/teacher_Name_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Teacher Name"
-                android:layout_marginRight="15dp"
+                android:text="Start Time :"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
-                />
-            <EditText
-                android:id="@+id/room_No_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Room No"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorNew"
                 />
 
-            <EditText
+            <TextView
                 android:id="@+id/start_time_id"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:hint="Start Time"
-                android:layout_marginRight="15dp"
+                android:text="Start Time"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
+            <ImageButton
+                android:id="@+id/image_id1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/time"
+                android:scaleType="centerCrop"
+                android:backgroundTint="#2196F3"
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" End Time :"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorNew"
                 />
 
-            <EditText
+            <TextView
                 android:id="@+id/finish_time_id"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:hint="Finish Time"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:text="End Time"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
                 />
-
+            <ImageButton
+                android:id="@+id/image_id2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/time"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFEB3B"
+                android:padding="15dp"
+                />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/select_day_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Day :"
-            android:textSize="30sp"
-            android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:text="Select Day :"
+            android:textSize="30sp"
 
             />
         <Spinner
             android:id="@+id/spinner_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
             android:layout_marginLeft="170dp"
-            android:entries="@array/days">
-        </Spinner>
+            android:layout_marginRight="40dp"
+            android:entries="@array/days"></Spinner>
 
         <Button
             android:id="@+id/save_button_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:padding="10dp"
-            android:layout_marginTop="15dp"
-            android:textSize="30sp"
-            android:textColor="#ffffff"
-            android:textAllCaps="false"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="50dp"
             android:background="@color/colorPrimary"
+            android:padding="10dp"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
 
             />
 
