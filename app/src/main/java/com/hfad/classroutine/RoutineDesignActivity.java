@@ -163,17 +163,23 @@ public class RoutineDesignActivity extends AppCompatActivity {
                         pd.dismiss();
                         Log.d("RETRO", "response : " + response.body().toString());
 
-                          if(response.isSuccessful())
+                        String result = response.body().getResponse().toString();
+
+                          if(result.equals("ok"))
                           {
                               Toast.makeText(RoutineDesignActivity.this,"insertion success",
                                       Toast.LENGTH_SHORT).show();
                              /// Log.d("Retro ",response.body().getResponse().toString());
                           }
-                          else
+                          else if(result.equals("exists"))
                           {
-                              Toast.makeText(RoutineDesignActivity.this,"failed",
+                              Toast.makeText(RoutineDesignActivity.this,"Routine allready exists...",
                                       Toast.LENGTH_SHORT).show();
                             //  Log.d("Retro ",response.body().getResponse().toString());
+                          }
+                          else {
+                              Toast.makeText(RoutineDesignActivity.this,"failed...",
+                                      Toast.LENGTH_SHORT).show();
                           }
 
                     }
