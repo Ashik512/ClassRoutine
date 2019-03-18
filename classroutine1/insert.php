@@ -10,10 +10,16 @@
   $finish_time = $_GET['finish_time'];
   $day_select = $_GET['day_select'];
   
+  
   $sql = "select * from routine where start_time like '$start_time' and day_select like '$day_select'";
   
   $result = mysqli_query($connection,$sql);
-  if(mysqli_num_rows($result)>0)
+  
+  if($start_time == $finish_time)
+  {
+	   echo json_encode(array('response' =>'time should not be same', 'message' => 'Already exists...'));
+  }
+  else if(mysqli_num_rows($result)>0)
   {
 	   echo json_encode(array('response' =>'exists', 'message' => 'Already exists...'));
   }

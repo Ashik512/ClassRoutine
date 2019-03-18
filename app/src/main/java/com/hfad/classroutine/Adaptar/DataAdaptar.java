@@ -1,6 +1,7 @@
 package com.hfad.classroutine.Adaptar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.hfad.classroutine.MainActivity;
 import com.hfad.classroutine.Model.User;
 import com.hfad.classroutine.R;
+import com.hfad.classroutine.RoutineDesignActivity;
 
 import java.util.List;
 
@@ -35,7 +37,7 @@ public class DataAdaptar extends RecyclerView.Adapter<DataAdaptar.FetchAdapter> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FetchAdapter holder, int i) {
+    public void onBindViewHolder(@NonNull final FetchAdapter holder, int i) {
 
         final User user = userList.get(i);
 
@@ -50,7 +52,18 @@ public class DataAdaptar extends RecyclerView.Adapter<DataAdaptar.FetchAdapter> 
              holder.cardView.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View v) {
-                     Toast.makeText(context, "Clicked On " + user.getDay_select(), Toast.LENGTH_LONG).show();
+
+                     Intent goInput = new Intent(context, RoutineDesignActivity.class);
+                     goInput.putExtra("id", user.getId());
+                     goInput.putExtra("subject",user.getSubject());
+                     goInput.putExtra("teacher",user.getTeacher());
+                     goInput.putExtra("room_no",user.getRoom_no());
+                     goInput.putExtra("start_time",user.getStart_time());
+                     goInput.putExtra("finish_time",user.getFinish_time());
+                     goInput.putExtra("day_select",user.getDay_select());
+
+                     context.startActivity(goInput);
+
                  }
              });
          }
