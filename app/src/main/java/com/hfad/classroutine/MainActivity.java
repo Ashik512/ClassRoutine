@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         {
             fab.hide();
             userType.setText("Hello, Student");
-            Toast.makeText(MainActivity.this,"Welcome Student...",
+            Toast.makeText(MainActivity.this,"Welcome Students...",
                     Toast.LENGTH_SHORT).show();
         }
         else
