@@ -13,4 +13,17 @@
         <item>THURSDAY</item>
     </array>
 
+    <array name="dept">
+        <item>CSE</item>
+        <item>EEE</item>
+        <item>CE</item>
+    </array>
+
+    <array name="year">
+        <item>1st year</item>
+        <item>2nd year</item>
+        <item>3rd year</item>
+        <item>4th year</item>
+    </array>
+
 </resources>
