@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/logout_id"
+        android:title="Logout"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/about_us_id"
+        android:title="About Developer"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/delete_id"
+        android:title="Delete"
+        app:showAsAction="always"
+        android:icon="@drawable/delete"
+        android:iconTint="#ffffff"
+        />
+
+</menu>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="15dp"
+        app:contentPadding="4dp"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="#81c784">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/model_sub_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="subject"
+                android:textSize="30dp"
+                android:textColor="#fff"
+                />
+
+            <TextView
+                android:id="@+id/model_teach_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teacher"
+                android:textSize="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/model_sub_id"
+                android:textColor="#fff"
+                android:layout_marginLeft="15dp"
+                />
+
+            <TextView
+                android:id="@+id/room_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Room_No"
+                android:textSize="15dp"
+                android:layout_below="@+id/model_teach_id"
+                android:textColor="#fff"
+                android:layout_marginLeft="15dp"
+                />
+
+                <TextView
+                    android:id="@+id/start_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="start_time"
+                    android:textSize="15dp"
+                    android:layout_below="@id/room_id"
+                    android:textColor="#fff"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:id="@+id/finish_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="finish_time"
+                    android:textSize="15dp"
+                    android:layout_below="@id/room_id"
+                    android:layout_toRightOf="@id/start_id"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#fff"
+
+                    />
+
+            <TextView
+                android:id="@+id/day_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="day"
+                android:textSize="15dp"
+                android:layout_below="@id/room_id"
+                android:layout_toRightOf="@id/finish_id"
+                android:layout_marginLeft="50dp"
+                android:textColor="#fff"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="3dp"
+                />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

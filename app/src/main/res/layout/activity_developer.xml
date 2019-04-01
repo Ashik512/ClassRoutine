@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeveloperActivity"
+    app:cardElevation="3dp"
+    android:textAlignment="center"
+    android:layout_gravity="center"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="#81c784"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dev_name"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:layout_marginTop="50dp"
+                android:text="Md. Delour Hossain"
+                />
+            <TextView
+                android:id="@+id/dev_name2"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jaid Jashim"
+                />
+            <TextView
+                android:textColor="#fff"
+                android:id="@+id/institution"
+                android:layout_gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sylhet Engineering College"
+                />
+            <TextView
+                android:textColor="#fff"
+                android:id="@+id/dept"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dept of CSE"
+                />
+
+            <TextView
+                android:textColor="#fff"
+                android:id="@+id/instructor"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Instructor : Enam Hassan"
+                />
+            <TextView
+                android:textColor="#fff"
+                android:id="@+id/lecturer"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lecturer of CSE, SUST"
+                android:layout_marginBottom="25dp"
+                />
+
+        </LinearLayout>
+
+</android.support.v7.widget.CardView>
